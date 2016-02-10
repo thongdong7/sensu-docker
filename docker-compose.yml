@@ -12,6 +12,8 @@ sensu-server:
   links:
     - rabbitmq
     - redis
+uchiwa:
+  build: uchiwa
 # sensu-api:
 #   build: sensu
 #   entrypoint: [bash, -c, "/etc/init.d/sensu-api start && sleep 10000"]
