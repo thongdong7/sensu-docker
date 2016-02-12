@@ -9,7 +9,7 @@
     "host": "redis"
   },
   "api": {
-    "host": "localhost",
+    "host": "sensu-server",
     "port": 4567
   }
 }

@@ -8,12 +8,21 @@ sensu-server:
   build: sensu
   entrypoint: [bash, -c, "/etc/init.d/sensu-server start && /etc/init.d/sensu-api start && sleep 10000"]
   ports:
-    - 3000:3000
+    - 4567:4567
   links:
     - rabbitmq
     - redis
 uchiwa:
-  build: uchiwa
+  image: uchiwa/uchiwa
+  volumes:
+    - ./uchiwa-config:/config
+#   build: uchiwa
+  ports:
+    - 3000:3000
+  links:
+    - sensu-server
+    - rabbitmq
+    - redis
 # sensu-api:
 #   build: sensu
 #   entrypoint: [bash, -c, "/etc/init.d/sensu-api start && sleep 10000"]
