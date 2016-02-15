@@ -23,11 +23,9 @@ uchiwa:
     - sensu
     - rabbitmq
     - redis
-# sensu-api:
-#   build: sensu
-#   entrypoint: [bash, -c, "/etc/init.d/sensu-api start && sleep 10000"]
-#   ports:
-#     - 3000:3000
-#   links:
-#     - rabbitmq
-#     - redis
+# Un-comment the following lines to have a test client
+#sensu-client:
+#  build: sensu-client
+#  links:
+#    - rabbitmq
+#    - redis
