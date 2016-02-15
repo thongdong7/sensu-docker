@@ -4,9 +4,9 @@ rabbitmq:
     - 15672:15672
 redis:
   image: redis
-sensu-server:
+sensu:
   build: sensu
-  entrypoint: [bash, -c, "/etc/init.d/sensu-server start && /etc/init.d/sensu-api start && sleep 10000"]
+#  entrypoint: [bash, -c, "/etc/init.d/sensu-server start && /etc/init.d/sensu-api start && sleep 10000"]
   ports:
     - 4567:4567
   links:
@@ -20,7 +20,7 @@ uchiwa:
   ports:
     - 3000:3000
   links:
-    - sensu-server
+    - sensu
     - rabbitmq
     - redis
 # sensu-api:

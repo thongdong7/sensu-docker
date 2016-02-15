@@ -7,4 +7,6 @@ RUN echo "deb     http://repositories.sensuapp.org/apt sensu main" | sudo tee /e
 
 RUN apt-get update -qq && apt-get install -qqy sensu
 
-ADD config.json /etc/sensu
+ADD files/ /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
