@@ -1,14 +1,15 @@
 rabbitmq:
   image: rabbitmq:management
-  ports:
-    - 15672:15672
+#  ports:
+#    - 15672:15672
 redis:
   image: redis
 sensu:
   build: sensu
-#  entrypoint: [bash, -c, "/etc/init.d/sensu-server start && /etc/init.d/sensu-api start && sleep 10000"]
-  ports:
-    - 4567:4567
+  volumes:
+    - ./sensu-conf-d:/etc/sensu/conf.d
+#  ports:
+#    - 4567:4567
   links:
     - rabbitmq
     - redis
@@ -16,16 +17,16 @@ uchiwa:
   image: uchiwa/uchiwa
   volumes:
     - ./uchiwa-config:/config
-#   build: uchiwa
   ports:
     - 3000:3000
   links:
     - sensu
     - rabbitmq
     - redis
-# Un-comment the following lines to have a test client
-#sensu-client:
-#  build: sensu-client
-#  links:
-#    - rabbitmq
-#    - redis
+# Sensu-client is just an example about how to setup a sensu-client
+# Remove it if you know how sensu-client work
+sensu-client:
+  build: sensu-client
+  links:
+    - rabbitmq
+    - redis
