@@ -6,9 +6,10 @@ A docker-compose project to build a Sensu System (Sensu Core, RabbitMQ, Redis, S
 
 Clone this project
 
-Go the project folder and type
+Navigate to the docker folder and type
 
 ```
+cd docker
 docker-compose up
 ```
 
