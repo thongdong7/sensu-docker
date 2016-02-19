@@ -5,7 +5,7 @@
       "host": "sensu",
       "ssl": false,
       "port": 4567,
-      "timeout": 5000
+      "timeout": 60
     }
   ],
   "uchiwa": {

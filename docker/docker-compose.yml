@@ -7,16 +7,16 @@ redis:
 sensu:
   build: sensu
   volumes:
-    - ./sensu-conf-d:/etc/sensu/conf.d
-#  ports:
-#    - 4567:4567
+    # Path to your sensu conf.d
+    - ../sample/sensu-conf-d:/etc/sensu/conf.d
   links:
     - rabbitmq
     - redis
 uchiwa:
   image: uchiwa/uchiwa
   volumes:
-    - ./uchiwa-config:/config
+    # Path to your uchiwa config folder. Feel free to customize it
+    - ../sample/uchiwa-config:/config
   ports:
     - 3000:3000
   links:
