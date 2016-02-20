@@ -1,0 +1,5 @@
+# Sensu-client is just an example about how to setup a sensu-client
+sensu-client:
+  build: client
+  external_links:
+    - docker_rabbitmq_1:rabbitmq

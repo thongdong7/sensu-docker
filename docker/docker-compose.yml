@@ -1,7 +1,8 @@
 rabbitmq:
   image: rabbitmq:management
-#  ports:
-#    - 15672:15672
+  # Rabbitmq need to be public so other sensu-client could send the data to
+  ports:
+    - 15672:15672
 redis:
   image: redis
 sensu:
@@ -21,12 +22,3 @@ uchiwa:
     - 3000:3000
   links:
     - sensu
-    - rabbitmq
-    - redis
-# Sensu-client is just an example about how to setup a sensu-client
-# Remove it if you know how sensu-client work
-sensu-client:
-  build: sensu-client
-  links:
-    - rabbitmq
-    - redis
