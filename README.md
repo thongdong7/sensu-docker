@@ -14,3 +14,10 @@ docker-compose up
 ```
 
 Open `http://localhost:3000` to access to Sensu Dashboard
+
+# Sample sensu-client
+
+```
+cd sample/docker
+docker-compose up
+```
